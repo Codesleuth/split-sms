@@ -6,9 +6,9 @@ function stringRepeat (string, times) {
    return (new Array(times + 1)).join(string);
 }
 
-describe('Message Info', function () {
+describe('Split-SMS', function () {
 
-  describe('Get info for GSM single part message', function () {
+  describe('Split GSM single part message', function () {
 
     var result;
     var parts;
@@ -17,11 +17,11 @@ describe('Message Info', function () {
       var message = '1234';
       parts = [{ part: message, length: 2 }];
       
-      var messageinfo = proxyquire('../lib/messageinfo', { 
+      var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
         './splitter': { splitGsm: sinon.stub().withArgs(message).returns(parts)}
       });
-      result = messageinfo.GetMessageInfo(message);
+      result = splitter.split(message);
     });
 
     it('should return GSM', function () {
@@ -46,7 +46,7 @@ describe('Message Info', function () {
 
   });
 
-  describe('Get info for full GSM single part message', function () {
+  describe('Split full GSM single part message', function () {
 
     var result;
     var parts;
@@ -55,11 +55,11 @@ describe('Message Info', function () {
       var message = stringRepeat('-', 160);
       parts = [{ part: message, length: 2 }];
       
-      var messageinfo = proxyquire('../lib/messageinfo', { 
+      var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
         './splitter': { splitGsm: sinon.stub().withArgs(message).returns(parts)}
       });
-      result = messageinfo.GetMessageInfo(message);
+      result = splitter.split(message);
     });
 
     it('should return GSM', function () {
@@ -84,7 +84,7 @@ describe('Message Info', function () {
 
   });
 
-  describe('Get info for GSM multi part message', function () {
+  describe('Split for GSM multi part message', function () {
 
     var result;
     var parts;
@@ -96,11 +96,11 @@ describe('Message Info', function () {
 
       var message = 'dfhdgfdfgd';
       
-      var messageinfo = proxyquire('../lib/messageinfo', { 
+      var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
         './splitter': { splitGsm: sinon.stub().withArgs(message).returns(parts)}
       });
-      result = messageinfo.GetMessageInfo(message);
+      result = splitter.split(message);
     });
 
     it('should return GSM', function () {
@@ -125,7 +125,7 @@ describe('Message Info', function () {
 
   });
 
-  describe('Get info for Unicode single part message', function () {
+  describe('Split Unicode single part message', function () {
 
     var result;
     var parts;
@@ -134,11 +134,11 @@ describe('Message Info', function () {
       var message = stringRepeat('-', 70);
       parts = [{ part: message, length: 18 }];
       
-      var messageinfo = proxyquire('../lib/messageinfo', { 
+      var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
         './splitter': { splitUnicode: sinon.stub().withArgs(message).returns(parts)}
       });
-      result = messageinfo.GetMessageInfo(message);
+      result = splitter.split(message);
     });
 
     it('should return Unicode', function () {
@@ -163,7 +163,7 @@ describe('Message Info', function () {
 
   });
 
-  describe('Get info for full Unicode single part message', function () {
+  describe('Split full Unicode single part message', function () {
 
     var result;
     var parts;
@@ -172,11 +172,11 @@ describe('Message Info', function () {
       var message = 'espresso';
       parts = [{ part: message, length: 18 }];
       
-      var messageinfo = proxyquire('../lib/messageinfo', { 
+      var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
         './splitter': { splitUnicode: sinon.stub().withArgs(message).returns(parts)}
       });
-      result = messageinfo.GetMessageInfo(message);
+      result = splitter.split(message);
     });
 
     it('should return Unicode', function () {
@@ -201,7 +201,7 @@ describe('Message Info', function () {
 
   });
 
-  describe('Get info for Unicode multi part message', function () {
+  describe('Split Unicode multi part message', function () {
 
     var result;
     var parts;
@@ -213,11 +213,11 @@ describe('Message Info', function () {
 
       var message = 'sdsasdaasdsad';
       
-      var messageinfo = proxyquire('../lib/messageinfo', { 
+      var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
         './splitter': { splitUnicode: sinon.stub().withArgs(message).returns(parts)}
       });
-      result = messageinfo.GetMessageInfo(message);
+      result = splitter.split(message);
     });
 
     it('should return Unicode', function () {
