@@ -26,6 +26,10 @@ function testMessage(testData, splitterFunction) {
         it('should have the expected length in part ' + (index + 1), function () {
           assert.equal(result[index].length, part.length);
         });
+
+        it('should have the expected bytes in part ' + (index + 1), function () {
+          assert.equal(result[index].bytes, part.bytes);
+        });
       })(testData.parts[i], i);
     }
 
