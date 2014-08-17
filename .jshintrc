@@ -1,0 +1,16 @@
+{
+  "curly": false,
+  "eqeqeq": true,
+  "eqnull": true,
+  "strict": false,
+  "undef": true,
+  "unused": true,
+  "indent": 2,
+  "globals": {
+    "console": false,
+    "require": false,
+    "module": false,
+    "process": false,
+    "setTimeout": false
+  }
+}

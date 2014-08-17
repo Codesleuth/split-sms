@@ -47,6 +47,29 @@ splitter.split('Snowman shows off! ☃');
 }
 ```
 
+## In The Browser
+
+To generate a browser consumable script, clone the repo and run the following command:
+
+```sh
+$ npm run-script browserify
+```
+
+This will generate a file in the path `build/js/split-sms.js` and attach the splitter to `window` so you can then consume the module as follows:
+
+```html
+<html>
+<head>
+  <script src="split-sms.js"></script>
+</head>
+<body>
+<script>
+  var info = window.splitter.split('Hello!');
+  document.write(JSON.stringify(info));
+</script>
+</body>
+```
+
 [npm-image]: http://img.shields.io/npm/v/split-sms.svg
 [npm-url]: https://npmjs.org/package/split-sms
 
