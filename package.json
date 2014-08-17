@@ -1,0 +1,25 @@
+{
+  "name": "split-sms",
+  "description": "An SMS message splitter with support for both GSM and Unicode.",
+  "author": "David Wood <david.p.wood@gmail.com>",
+  "scripts": {
+    "test": "mocha"
+  },
+  "main": "lib/messageinfo.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codesleuth/split-sms"
+  },
+  "bugs": {
+    "url": "https://github.com/codesleuth/split-sms/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.21.4",
+    "proxyquire": "^1.0.1",
+    "sinon": "~1.10.3"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/codesleuth/split-sms/raw/master/LICENSE"
+  }
+}
