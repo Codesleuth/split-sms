@@ -16,11 +16,16 @@ GSM support is limited to GSM 03.38 with the extension table (see the [Wikipedia
 In the example above, `info` will be:
 
 ```json
-{ characterSet: 'GSM',
-  parts: [ { part: 'JavaScript is fun!', length: 18 } ],
-  bytes: 18,
-  length: 18,
-  remainingInPart: 142 }
+{
+  "characterSet": "GSM",
+  "parts": [{
+    "part": "JavaScript is fun!",
+    "length": 18
+  }],
+  "bytes": 18,
+  "length": 18,
+  "remainingInPart": 142
+}
 ```
 
 Unicode example:
@@ -30,11 +35,16 @@ splitter.split('Snowman shows off! ☃');
 ```
 
 ```json
-{ characterSet: 'Unicode',
-  parts: [ { part: 'Snowman shows off! ☃', length: 20 } ],
-  bytes: 40,
-  length: 20,
-  remainingInPart: 50 }
+{
+  "characterSet": "Unicode",
+  "parts": [{
+    "part": "Snowman shows off! ☃",
+    "length": 20
+  }],
+  "bytes": 40,
+  "length": 20,
+  "remainingInPart": 50
+}
 ```
 
 [npm-image]: http://img.shields.io/npm/v/split-sms.svg
