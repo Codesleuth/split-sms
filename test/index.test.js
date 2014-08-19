@@ -19,7 +19,7 @@ describe('Split-SMS', function () {
       
       var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
-        './splitter': { splitGsm: sinon.stub().withArgs(message).returns(parts)}
+        './gsmsplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
     });
@@ -57,7 +57,7 @@ describe('Split-SMS', function () {
       
       var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
-        './splitter': { splitGsm: sinon.stub().withArgs(message).returns(parts)}
+        './gsmsplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
     });
@@ -98,7 +98,7 @@ describe('Split-SMS', function () {
       
       var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
-        './splitter': { splitGsm: sinon.stub().withArgs(message).returns(parts)}
+        './gsmsplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
     });
@@ -136,7 +136,7 @@ describe('Split-SMS', function () {
       
       var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
-        './splitter': { splitUnicode: sinon.stub().withArgs(message).returns(parts)}
+        './unicodesplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
     });
@@ -174,7 +174,7 @@ describe('Split-SMS', function () {
       
       var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
-        './splitter': { splitUnicode: sinon.stub().withArgs(message).returns(parts)}
+        './unicodesplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
     });
@@ -215,7 +215,7 @@ describe('Split-SMS', function () {
       
       var splitter = proxyquire('../lib/index', { 
         './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
-        './splitter': { splitUnicode: sinon.stub().withArgs(message).returns(parts)}
+        './unicodesplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
     });

@@ -1,5 +1,6 @@
 var assert = require('assert');
-var splitter = require('../lib/splitter'),
+var gsmSplitter = require('../lib/gsmsplitter'),
+    unicodeSplitter = require('../lib/unicodesplitter'),
     gsmTestData = require('./testdata/gsm.test.json'),
     unicodeTestData = require('./testdata/unicode.test.json');
 
@@ -42,7 +43,7 @@ describe('SMS Splitter', function () {
   describe('GSM Message', function () {
 
     for (var i = 0; i < gsmTestData.length; i++) {
-      testMessage(gsmTestData[i], splitter.splitGsm);
+      testMessage(gsmTestData[i], gsmSplitter.split);
     }
 
   });
@@ -50,7 +51,7 @@ describe('SMS Splitter', function () {
   describe('Unicode Message', function () {
 
     for (var i = 0; i < unicodeTestData.length; i++) {
-      testMessage(unicodeTestData[i], splitter.splitUnicode);
+      testMessage(unicodeTestData[i], unicodeSplitter.split);
     }
 
   });
