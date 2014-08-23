@@ -18,7 +18,7 @@ describe('Split-SMS', function () {
       parts = [{ part: message, length: 2 }];
       
       var splitter = proxyquire('../lib/index', { 
-        './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
+        './gsmvalidator': { validateMessage: sinon.stub().withArgs(message).returns(true) },
         './gsmsplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
@@ -56,7 +56,7 @@ describe('Split-SMS', function () {
       parts = [{ part: message, length: 2 }];
       
       var splitter = proxyquire('../lib/index', { 
-        './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
+        './gsmvalidator': { validateMessage: sinon.stub().withArgs(message).returns(true) },
         './gsmsplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
@@ -97,7 +97,7 @@ describe('Split-SMS', function () {
       var message = 'dfhdgfdfgd';
       
       var splitter = proxyquire('../lib/index', { 
-        './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('GSM') },
+        './gsmvalidator': { validateMessage: sinon.stub().withArgs(message).returns(true) },
         './gsmsplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
@@ -135,7 +135,7 @@ describe('Split-SMS', function () {
       parts = [{ part: message, length: 18 }];
       
       var splitter = proxyquire('../lib/index', { 
-        './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
+        './gsmvalidator': { validateMessage: sinon.stub().withArgs(message).returns(false) },
         './unicodesplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
@@ -173,7 +173,7 @@ describe('Split-SMS', function () {
       parts = [{ part: message, length: 18 }];
       
       var splitter = proxyquire('../lib/index', { 
-        './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
+        './gsmvalidator': { validateMessage: sinon.stub().withArgs(message).returns(false) },
         './unicodesplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
@@ -214,7 +214,7 @@ describe('Split-SMS', function () {
       var message = 'sdsasdaasdsad';
       
       var splitter = proxyquire('../lib/index', { 
-        './charactersetdetector': { DetectCharacterSet: sinon.stub().withArgs(message).returns('Unicode') },
+        './gsmvalidator': { validateMessage: sinon.stub().withArgs(message).returns(false) },
         './unicodesplitter': { split: sinon.stub().withArgs(message).returns(parts)}
       });
       result = splitter.split(message);
