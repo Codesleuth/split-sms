@@ -15,6 +15,14 @@
   "bugs": {
     "url": "https://github.com/codesleuth/split-sms/issues"
   },
+  "keywords": [
+    "sms",
+    "unicode",
+    "gsm",
+    "split",
+    "splitter",
+    "credits"
+  ],
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-browserify": "^0.5.0",
