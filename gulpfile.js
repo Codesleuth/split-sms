@@ -4,11 +4,11 @@ var gulp = require('gulp'),
     browserify = require('gulp-browserify');
 
 gulp.task('jshint:tests', function () {
-  return gulp.src(['test/**/*.test.js'])
+  return gulp.src(['test/**/*.js'])
     .pipe(jshint('./test/.jshintrc'))
     .pipe(jshint.reporter('default'));
 });
- 
+
 gulp.task('jshint:code', function () {
   return gulp.src(['gulpfile.js', './lib/**/*.js'])
     .pipe(jshint('./.jshintrc'))
@@ -17,7 +17,7 @@ gulp.task('jshint:code', function () {
 
 gulp.task('mochaTest', ['jshint:tests', 'jshint:code'], function () {
   return gulp.src('test/**/*.test.js', {read: false})
-    .pipe(mocha({reporter: 'spec'}));
+    .pipe(mocha({reporter: 'dot'}));
 });
 
 gulp.task('browserify', function() {
