@@ -20,7 +20,11 @@ describe('Split-SMS', function () {
       message = '6546544';
 
       splitResult = {
-        parts: [{ content: "1234" }],
+        parts: [{
+          content: "1234",
+          length: 4,
+          bytes: 4
+        }],
         totalLength: 3636,
         totalBytes: 68678
       };
@@ -73,7 +77,11 @@ describe('Split-SMS', function () {
 
     before(function () {
       splitResult = {
-        parts: [{ content: stringRepeat('a', 160) }],
+        parts: [{
+          content: stringRepeat('\f', 5) + stringRepeat('a', 150),
+          length: 155,
+          bytes: 160
+        }],
         totalLength: 345,
         totalBytes: 45
       };
@@ -99,7 +107,11 @@ describe('Split-SMS', function () {
 
     before(function () {
       splitResult = {
-        parts: [{}, { content: '1234' }],
+        parts: [{}, {
+          content: '1234',
+          length: 4,
+          bytes: 4
+        }],
         totalLength: 3636,
         totalBytes: 68678
       };
@@ -130,7 +142,11 @@ describe('Split-SMS', function () {
         message = 'sdakdjaklsd';
 
         splitResult = {
-          parts: [{ content: "1234" }],
+          parts: [{
+            content: "1234",
+            length: 4,
+            bytes: 8
+          }],
           totalLength: 234,
           totalBytes: 345
         };
@@ -183,7 +199,10 @@ describe('Split-SMS', function () {
 
       before(function () {
         splitResult = {
-          parts: [{ content: stringRepeat('a', 70) }],
+          parts: [{
+            length: 70,
+            bytes: 140
+          }],
           totalLength: 777,
           totalBytes: 666
         };
@@ -209,7 +228,11 @@ describe('Split-SMS', function () {
 
       before(function () {
         splitResult = {
-          parts: [{}, { content: '1234' }],
+          parts: [{}, {
+            content: '1234',
+            length: 4,
+            bytes: 8
+          }],
           totalLength: 888,
           totalBytes: 999
         };

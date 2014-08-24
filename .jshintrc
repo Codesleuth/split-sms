@@ -7,7 +7,6 @@
   "unused": true,
   "indent": 2,
   "globals": {
-    "console": false,
     "require": false,
     "module": false,
     "process": false,
