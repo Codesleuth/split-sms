@@ -57,7 +57,7 @@ function testMessageSummary(testData, splitterFunction) {
     });
 
     it('should have ' + testData.parts.length + ' parts', function () {
-      assert.strictEqual(result.parts, testData.parts.length);
+      assert.strictEqual(result.parts.length, testData.parts.length);
     });
 
     it('should have ' + testData.totalLength + ' total characters', function () {
@@ -67,6 +67,22 @@ function testMessageSummary(testData, splitterFunction) {
     it('should have ' + testData.totalBytes + ' total bytes', function () {
       assert.strictEqual(result.totalBytes, testData.totalBytes);
     });
+
+    for (var i = 0; i < testData.parts.length; i++) {
+      (function (i, expected) {
+        it('should have no content in part ' + (i + 1), function () {
+          assert.strictEqual(result.parts[i].content, undefined);
+        });
+
+        it('should have the expected length in part ' + (i + 1), function () {
+          assert.strictEqual(result.parts[i].length, expected.length);
+        });
+
+        it('should have the expected bytes in part ' + (i + 1), function () {
+          assert.strictEqual(result.parts[i].bytes, expected.bytes);
+        });
+      })(i, testData.parts[i]);
+    }
 
   });
 

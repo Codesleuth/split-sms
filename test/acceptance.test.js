@@ -149,6 +149,62 @@ describe('Acceptance Tests', function () {
 
   });
 
+  describe('Multipart message of all GSM characters with summary option', function () {
+
+    var result;
+
+    before(function () {
+      var part1 = randomGsmString(153);
+      var part2 = randomGsmString(153);
+      result = splitter.split(part1 + part2, { summary: true });
+    });
+
+    it('should return characterset GSM', function () {
+      assert.strictEqual(result.characterSet, 'GSM');
+    });
+
+    it('should return 306 length', function () {
+      assert.strictEqual(result.length, 306);
+    });
+
+    it('should return 306 bytes', function () {
+      assert.strictEqual(result.bytes, 306);
+    });
+
+    it('should return 2 parts', function () {
+      assert.strictEqual(result.parts.length, 2);
+    });
+
+    it('should return 0 remaining in last part', function () {
+      assert.strictEqual(result.remainingInPart, 0);
+    });
+
+    it('should not return any content in the first part', function () {
+      assert.strictEqual(result.parts[0].content, undefined);
+    });
+
+    it('should return the expected length in the first part', function () {
+      assert.strictEqual(result.parts[0].length, 153);
+    });
+
+    it('should return the expected bytes in the first part', function () {
+      assert.strictEqual(result.parts[0].bytes, 153);
+    });
+
+    it('should not return any content in the second part', function () {
+      assert.strictEqual(result.parts[1].content, undefined);
+    });
+
+    it('should return the expected length in the second part', function () {
+      assert.strictEqual(result.parts[1].length, 153);
+    });
+
+    it('should return the expected bytes in the second part', function () {
+      assert.strictEqual(result.parts[1].bytes, 153);
+    });
+
+  });
+
   describe('Single part message of all GSM Extended characters', function () {
 
     var message;
@@ -341,6 +397,62 @@ describe('Acceptance Tests', function () {
 
     it('should return the expected content in the second part', function () {
       assert.strictEqual(result.parts[1].content, part2);
+    });
+
+    it('should return the expected length in the second part', function () {
+      assert.strictEqual(result.parts[1].length, 67);
+    });
+
+    it('should return the expected bytes in the second part', function () {
+      assert.strictEqual(result.parts[1].bytes, 134);
+    });
+
+  });
+
+  describe('Multipart message of all non-GSM characters with summary option', function () {
+
+    var result;
+
+    before(function () {
+      var part1 = randomNonGsmString(67);
+      var part2 = randomNonGsmString(67);
+      result = splitter.split(part1 + part2, { summary: true });
+    });
+
+    it('should return characterset Unicode', function () {
+      assert.strictEqual(result.characterSet, 'Unicode');
+    });
+
+    it('should return 134 length', function () {
+      assert.strictEqual(result.length, 134);
+    });
+
+    it('should return 268 bytes', function () {
+      assert.strictEqual(result.bytes, 268);
+    });
+
+    it('should return 2 parts', function () {
+      assert.strictEqual(result.parts.length, 2);
+    });
+
+    it('should return 0 remaining in last part', function () {
+      assert.strictEqual(result.remainingInPart, 0);
+    });
+
+    it('should not return any content in the first part', function () {
+      assert.strictEqual(result.parts[0].content, undefined);
+    });
+
+    it('should return the expected length in the first part', function () {
+      assert.strictEqual(result.parts[0].length, 67);
+    });
+
+    it('should return the expected bytes in the first part', function () {
+      assert.strictEqual(result.parts[0].bytes, 134);
+    });
+
+    it('should not return any content in the second part', function () {
+      assert.strictEqual(result.parts[1].content, undefined);
     });
 
     it('should return the expected length in the second part', function () {
