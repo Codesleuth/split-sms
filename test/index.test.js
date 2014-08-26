@@ -251,4 +251,114 @@ describe('Split-SMS', function () {
 
   });
 
+  describe('Split GSM single part message with characterset Unicode option', function () {
+
+    var message;
+    var splitResult;
+    var splitStub;
+    var result;
+
+    before(function () {
+      message = '6546544';
+
+      splitResult = {
+        parts: [{
+          content: "1234",
+          length: 654,
+          bytes: 140
+        }],
+        totalLength: 3636,
+        totalBytes: 68678
+      };
+
+      splitStub = sinon.stub().returns(splitResult);
+
+      var splitter = proxyquire('../lib/index', {
+        './unicodesplitter': { split: splitStub }
+      });
+
+      result = splitter.split(message, { characterset: 'Unicode' });
+    });
+
+    it('should split the message', function () {
+      sinon.assert.calledWith(splitStub, message);
+    });
+
+    it('should return Unicode', function () {
+      assert.strictEqual(result.characterSet, 'Unicode');
+    });
+
+    it('should return the expected parts', function () {
+      assert.strictEqual(result.parts, splitResult.parts);
+    });
+
+    it('should return the expected length', function () {
+      assert.strictEqual(result.length, splitResult.totalLength);
+    });
+
+    it('should return the expected bytes', function () {
+      assert.strictEqual(result.bytes, splitResult.totalBytes);
+    });
+
+    it('should have the expected characters remaining', function () {
+      assert.strictEqual(result.remainingInPart, 0);
+    });
+
+  });
+
+  describe('Split Unicode single part message with characterset GSM option', function () {
+
+    var message;
+    var splitResult;
+    var splitStub;
+    var result;
+
+    before(function () {
+      message = 'sdfsdfsdffs';
+
+      splitResult = {
+        parts: [{
+          content: "1 2 3 4 5",
+          length: 654,
+          bytes: 160
+        }],
+        totalLength: 451,
+        totalBytes: 463
+      };
+
+      splitStub = sinon.stub().returns(splitResult);
+
+      var splitter = proxyquire('../lib/index', {
+        './gsmsplitter': { split: splitStub }
+      });
+
+      result = splitter.split(message, { characterset: 'GSM' });
+    });
+
+    it('should split the message', function () {
+      sinon.assert.calledWith(splitStub, message);
+    });
+
+    it('should return GSM', function () {
+      assert.strictEqual(result.characterSet, 'GSM');
+    });
+
+    it('should return the expected parts', function () {
+      assert.strictEqual(result.parts, splitResult.parts);
+    });
+
+    it('should return the expected length', function () {
+      assert.strictEqual(result.length, splitResult.totalLength);
+    });
+
+    it('should return the expected bytes', function () {
+      assert.strictEqual(result.bytes, splitResult.totalBytes);
+    });
+
+    it('should have the expected characters remaining', function () {
+      assert.strictEqual(result.remainingInPart, 0);
+    });
+
+  });
+
 });
