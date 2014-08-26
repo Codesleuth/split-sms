@@ -578,7 +578,7 @@ describe('Acceptance Tests', function () {
 
     before(function () {
       message = randomGsmString(70);
-      result = splitter.split(message, { characterset: 'Unicode' });
+      result = splitter.split(message, { characterset: splitter.UNICODE });
     });
 
     it('should return characterset Unicode', function () {
@@ -624,7 +624,7 @@ describe('Acceptance Tests', function () {
     before(function () {
       message = randomSurrogatePairString(160);
       expectedMessage = stringRepeat(' ', 160);
-      result = splitter.split(message, { characterset: 'GSM' });
+      result = splitter.split(message, { characterset: splitter.GSM });
     });
 
     it('should return characterset GSM', function () {
@@ -670,7 +670,7 @@ describe('Acceptance Tests', function () {
     before(function () {
       message = randomNonGsmString(160);
       expectedMessage = stringRepeat(' ', 160);
-      result = splitter.split(message, { characterset: 'GSM' });
+      result = splitter.split(message, { characterset: splitter.GSM });
     });
 
     it('should return characterset GSM', function () {
@@ -716,7 +716,7 @@ describe('Acceptance Tests', function () {
     before(function () {
       part1 = randomGsmString(67);
       part2 = randomGsmString(4);
-      result = splitter.split(part1 + part2, { characterset: 'Unicode' });
+      result = splitter.split(part1 + part2, { characterset: splitter.UNICODE });
     });
 
     it('should return characterset Unicode', function () {
@@ -778,7 +778,7 @@ describe('Acceptance Tests', function () {
       part2 = randomSurrogatePairString(153);
       expectedPart1 = stringRepeat(' ', 153);
       expectedPart2 = stringRepeat(' ', 153);
-      result = splitter.split(part1 + part2, { characterset: 'GSM' });
+      result = splitter.split(part1 + part2, { characterset: splitter.GSM });
     });
 
     it('should return characterset GSM', function () {

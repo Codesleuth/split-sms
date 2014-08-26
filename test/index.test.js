@@ -277,7 +277,7 @@ describe('Split-SMS', function () {
         './unicodesplitter': { split: splitStub }
       });
 
-      result = splitter.split(message, { characterset: 'Unicode' });
+      result = splitter.split(message, { characterset: splitter.UNICODE });
     });
 
     it('should split the message', function () {
@@ -332,7 +332,7 @@ describe('Split-SMS', function () {
         './gsmsplitter': { split: splitStub }
       });
 
-      result = splitter.split(message, { characterset: 'GSM' });
+      result = splitter.split(message, { characterset: splitter.GSM });
     });
 
     it('should split the message', function () {
