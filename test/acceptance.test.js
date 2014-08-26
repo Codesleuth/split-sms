@@ -827,4 +827,88 @@ describe('Acceptance Tests', function () {
 
   });
 
+  describe('Empty message', function () {
+
+    var result;
+
+    before(function () {
+      result = splitter.split('');
+    });
+
+    it('should return characterset GSM', function () {
+      assert.strictEqual(result.characterSet, 'GSM');
+    });
+
+    it('should return 0 length', function () {
+      assert.strictEqual(result.length, 0);
+    });
+
+    it('should return 0 bytes', function () {
+      assert.strictEqual(result.bytes, 0);
+    });
+
+    it('should return 1 part', function () {
+      assert.strictEqual(result.parts.length, 1);
+    });
+
+    it('should return 160 remaining in last part', function () {
+      assert.strictEqual(result.remainingInPart, 160);
+    });
+
+    it('should return an empty first part', function () {
+      assert.strictEqual(result.parts[0].content, '');
+    });
+
+    it('should return zero length in the first part', function () {
+      assert.strictEqual(result.parts[0].length, 0);
+    });
+
+    it('should return zero bytes in the first part', function () {
+      assert.strictEqual(result.parts[0].bytes, 0);
+    });
+
+  });
+
+  describe('Empty message with forced Unicode character set', function () {
+
+    var result;
+
+    before(function () {
+      result = splitter.split('', { characterset: splitter.UNICODE });
+    });
+
+    it('should return characterset Unicode', function () {
+      assert.strictEqual(result.characterSet, 'Unicode');
+    });
+
+    it('should return 0 length', function () {
+      assert.strictEqual(result.length, 0);
+    });
+
+    it('should return 0 bytes', function () {
+      assert.strictEqual(result.bytes, 0);
+    });
+
+    it('should return 1 part', function () {
+      assert.strictEqual(result.parts.length, 1);
+    });
+
+    it('should return 70 remaining in last part', function () {
+      assert.strictEqual(result.remainingInPart, 70);
+    });
+
+    it('should return an empty first part', function () {
+      assert.strictEqual(result.parts[0].content, '');
+    });
+
+    it('should return zero length in the first part', function () {
+      assert.strictEqual(result.parts[0].length, 0);
+    });
+
+    it('should return zero bytes in the first part', function () {
+      assert.strictEqual(result.parts[0].bytes, 0);
+    });
+
+  });
+
 });

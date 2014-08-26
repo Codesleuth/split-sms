@@ -134,4 +134,14 @@
   }],
   "totalLength": 160,
   "totalBytes": 160
+},{
+  "description": "Split empty message",
+  "message": "",
+  "parts": [{
+    "content": "",
+    "length": 0,
+    "bytes": 0
+  }],
+  "totalLength": 0,
+  "totalBytes": 0
 }]

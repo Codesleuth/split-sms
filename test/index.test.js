@@ -70,6 +70,51 @@ describe('Split-SMS', function () {
 
   });
 
+  describe('Split empty message', function () {
+
+    var splitResult;
+    var result;
+
+    before(function () {
+      splitResult = {
+        parts: [{
+          content: "",
+          length: 0,
+          bytes: 0
+        }],
+        totalLength: 0,
+        totalBytes: 0
+      };
+
+      var splitter = proxyquire('../lib/index', {
+        './gsmsplitter': { split: sinon.stub().returns(splitResult) }
+      });
+
+      result = splitter.split('');
+    });
+
+    it('should return GSM', function () {
+      assert.strictEqual(result.characterSet, 'GSM');
+    });
+
+    it('should return 1 part', function () {
+      assert.strictEqual(result.parts, splitResult.parts);
+    });
+
+    it('should return zero length', function () {
+      assert.strictEqual(result.length, 0);
+    });
+
+    it('should return zero bytes', function () {
+      assert.strictEqual(result.bytes, 0);
+    });
+
+    it('should have 160 characters remaining', function () {
+      assert.strictEqual(result.remainingInPart, 160);
+    });
+
+  });
+
   describe('Split full GSM single part message', function () {
 
     var splitResult;
