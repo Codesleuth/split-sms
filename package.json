@@ -1,6 +1,6 @@
 {
   "name": "split-sms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An SMS message splitter with support for both GSM and Unicode.",
   "author": "David Wood <david.p.wood@gmail.com> (http://www.codesleuth.co.uk/)",
   "scripts": {
