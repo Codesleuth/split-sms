@@ -3,7 +3,7 @@ var assert = require('assert'),
 var splitter = require('../');
 
 function randomGsmString(length) {
-  var gsm = '@Δ\x200¡P¿p£_!1AQaq$Φ"2BRbr¥Γ#3CScsèΛ¤4DTdtéΩ%5EUeuùΠ&6FVfvìΨ\'7GWgwòΣ(8HXhxÇΘ)9IYiy\nΞ*:JZjzØ+;KÄkäøÆ,<LÖlö\ræ-=MÑmñÅß.>NÜnüåÉ/?O§oà';
+  var gsm = '@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞÆæßÉ !"#¤%&\'()*+,-./0123456789:;<=>?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ§¿abcdefghijklmnopqrstuvwxyzäöñüà';
   var result = '';
   for (var i = 0, max = gsm.length - 1; i < length; i++) {
     result += gsm[random.integer(0, max)];
@@ -12,7 +12,7 @@ function randomGsmString(length) {
 }
 
 function randomGsmExtendedString(length) {
-  var gsme = '|^€{}[~]\\\f';
+  var gsme = '\f^{}\\[~]|€';
   var result = '';
   for (var i = 0, max = gsme.length - 1; i < length; i++) {
     result += gsme[random.integer(0, max)];
