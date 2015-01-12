@@ -56,10 +56,19 @@ describe('GSM Validator', function () {
 
   });
 
-  describe('Validating a GSM character with more than one character', function () {
+  describe('Validating a GSM character with more than one character beginning with a GSM character', function () {
+
+    it('should return true', function () {
+      var result = gsmValidator.validateCharacter('EUe');
+      assert.strictEqual(result, true);
+    });
+
+  });
+
+  describe('Validating a GSM character with more than one character beginning with a non-GSM character', function () {
 
     it('should return false', function () {
-      var result = gsmValidator.validateCharacter('EUe');
+      var result = gsmValidator.validateCharacter('ȅUe');
       assert.strictEqual(result, false);
     });
 
