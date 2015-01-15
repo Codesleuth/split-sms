@@ -1,0 +1,14 @@
+# Site settings
+title: split-sms
+email: david.p.wood@gmail.com
+description: A pure JavaScript implementation of SMS message splitting and part calculation with support for GSM and Unicode.
+baseurl: "/split-sms"
+url: "http://www.codesleuth.co.uk"
+
+# Build settings
+markdown: redcarpet
+highlighter: pygments
+github: https://github.com/codesleuth/split-sms
+
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]

@@ -1,0 +1,36 @@
+#page {
+  margin-bottom: 100px;
+}
+
+#content, #footer {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: $on-laptop) {
+    width: 100%;
+    margin: 0;
+  }
+
+  @media screen and (max-device-width: $on-palm) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+table th {
+  text-align: left;
+}
+
+th, td {
+  padding: 10px;
+}
+
+#summary {
+  font-size: $large-font-size * 1.5;
+}
+
+#footer {
+  color: rgba(128, 128, 128, 0.6);
+  margin-bottom: 24px;
+}

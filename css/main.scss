@@ -1,0 +1,20 @@
+---
+# This is the main SASS file.
+---
+@charset "utf-8";
+
+$base-font-family: 'Source Sans Pro', sans-serif;
+$base-font-size:   18px;
+$small-font-size:  14px;
+$large-font-size:  21px;
+$base-line-height: 1.0;
+
+$code-font-family: 'Source Code Pro', monospace;
+
+$text-color:       #3F3F3F;
+$background-color: #F6F6F6;
+
+$on-palm:          400px;
+$on-laptop:        800px;
+
+@import "base","layout";

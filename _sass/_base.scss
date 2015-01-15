@@ -1,0 +1,31 @@
+body {
+  background-color: $background-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  color: $text-color;
+  line-height: $base-line-height;
+}
+
+h1 {
+  font-size: $base-font-size * 3.0;
+}
+
+h2 {
+  font-size: $base-font-size * 2.0;
+}
+
+h1, h2 {
+  margin: 1.8em 0;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
+}
+
+/* .highlight {
+  background-color: rgba(128, 128, 128, 0.0470588);
+  padding: 10px 20px;
+} */
