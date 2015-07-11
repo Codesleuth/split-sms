@@ -28,9 +28,9 @@ gulp.task('mochaTest', ['jshint:tests', 'jshint:code'], function () {
 
 gulp.task('build', function() {
   return browserify({
-    buildins: false,
     entries: ['./lib/index.js'],
     standalone: 'splitter',
+    builtins: false,
     insertGlobals: false
   })
   .bundle()
