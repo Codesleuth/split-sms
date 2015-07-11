@@ -1,4 +1,5 @@
 (function (splitter) {
+  "use strict";
 
   var box = document.getElementById('message');
   var infoText = document.createTextNode("0");
