@@ -34,7 +34,7 @@ gulp.task('build', function() {
     insertGlobals: false
   })
   .bundle()
-  .pipe(source('sms-splitter.js'))
+  .pipe(source('split-sms.js'))
   .pipe(gulp.dest('./dist/'));
 });
 
