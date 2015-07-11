@@ -20,8 +20,8 @@ Contributions are welcome! Fork the project [over on GitHub](https://github.com/
 Type a message into the box below!
 
 <div>
-  <div style="width: 50%; float: right">
-    <pre id="info"></pre>
+  <div style="width: 45%; float: right">
+    <textarea id="info" rows="10" style="width: 100%" readonly></textarea>
   </div>
   <div style="width: 45%">
     <textarea id="message" rows="10" style="width: 100%"></textarea>
