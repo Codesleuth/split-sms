@@ -39,5 +39,4 @@ gulp.task('build', function() {
 });
 
 gulp.task('test', ['jshint:tests', 'jshint:code', 'mochaTest']);
-
-gulp.task('default', ['test', 'clean:dist', 'build']);
+gulp.task('default', ['clean:dist', 'test', 'build']);
