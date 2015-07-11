@@ -1,7 +1,13 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     mocha = require('gulp-mocha'),
-    browserify = require('gulp-browserify');
+    del = require('del'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream');
+
+gulp.task('clean:dist', function (cb) {
+  del(['dist/**'], cb);
+});
 
 gulp.task('jshint:tests', function () {
   return gulp.src(['test/**/*.js'])
@@ -20,12 +26,16 @@ gulp.task('mochaTest', ['jshint:tests', 'jshint:code'], function () {
     .pipe(mocha({reporter: 'dot'}));
 });
 
-gulp.task('browserify', function() {
-  return gulp.src('script/split-sms.js')
-  .pipe(browserify({
+gulp.task('build', function() {
+  return browserify({
+    buildins: false,
+    entries: ['./lib/index.js'],
+    standalone: 'splitter',
     insertGlobals: false
-  }))
-  .pipe(gulp.dest('./build/js'));
+  })
+  .bundle()
+  .pipe(source('sms-splitter.js'))
+  .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('default', ['jshint:tests', 'jshint:code', 'mochaTest']);
+gulp.task('default', ['jshint:tests', 'jshint:code', 'mochaTest', 'clean:dist', 'build']);
