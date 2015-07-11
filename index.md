@@ -19,10 +19,10 @@ Type a message into the box below!
 
 <div>
   <div style="width: 45%; float: right">
-    <textarea id="info" rows="10" style="width: 100%" readonly></textarea>
+    <textarea id="info" rows="14" style="width: 100%" readonly></textarea>
   </div>
   <div style="width: 45%">
-    <textarea id="message" rows="10" style="width: 100%"></textarea>
+    <textarea id="message" rows="14" style="width: 100%">Snowman shows off! ☃</textarea>
   </div>
 </div>
 
