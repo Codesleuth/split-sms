@@ -1,0 +1,39 @@
+{
+  "name": "split-sms",
+  "version": "0.1.5",
+  "homepage": "https://github.com/Codesleuth/split-sms",
+  "authors": [
+    "David Wood <david.p.wood@gmail.com> (http://www.codesleuth.co.uk/)"
+  ],
+  "description": "An SMS message splitter and part calculator with support for GSM and Unicode.",
+  "main": "dist/split-sms.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "sms",
+    "unicode",
+    "gsm",
+    "split",
+    "credits",
+    "splitter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.1.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.5",
+    "commit": "d9fe11fd3dfdb2e2c0eea3291bd3bafce6e43967"
+  },
+  "_source": "git://github.com/Codesleuth/split-sms.git",
+  "_target": "~0.1.5",
+  "_originalSource": "split-sms",
+  "_direct": true
+}

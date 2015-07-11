@@ -10,8 +10,6 @@ layout: default
 
 *Note: The documentation is still in progress.*
 
-<script src="js/split-sms.js"></script>
-
 ## Contribute
 Contributions are welcome! Fork the project [over on GitHub](https://github.com/codesleuth/split-sms "split-sms") and create a pull request!
 
@@ -28,4 +26,4 @@ Type a message into the box below!
   </div>
 </div>
 
-<script src="js/live-example.js"></script>
+<script src="live-example.js"></script>
