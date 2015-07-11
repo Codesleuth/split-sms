@@ -38,4 +38,6 @@ gulp.task('build', function() {
   .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('default', ['jshint:tests', 'jshint:code', 'mochaTest', 'clean:dist', 'build']);
+gulp.task('test', ['jshint:tests', 'jshint:code', 'mochaTest']);
+
+gulp.task('default', ['test', 'clean:dist', 'build']);
