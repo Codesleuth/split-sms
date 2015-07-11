@@ -3,7 +3,9 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     del = require('del'),
     browserify = require('browserify'),
-    source = require('vinyl-source-stream');
+    source = require('vinyl-source-stream'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename');
 
 gulp.task('clean:dist', function (cb) {
   del(['dist/**'], cb);
@@ -35,8 +37,17 @@ gulp.task('build', function() {
   })
   .bundle()
   .pipe(source('split-sms.js'))
-  .pipe(gulp.dest('./dist/'));
+  .pipe(gulp.dest('dist'));
+});
+
+gulp.task('compress', ['build'], function() {
+  return gulp.src('dist/split-sms.js')
+    .pipe(uglify())
+    .pipe(rename({
+       extname: '.min.js'
+     }))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('test', ['jshint:tests', 'jshint:code', 'mochaTest']);
-gulp.task('default', ['clean:dist', 'test', 'build']);
+gulp.task('default', ['clean:dist', 'test', 'build', 'compress']);
