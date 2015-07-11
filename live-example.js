@@ -10,7 +10,8 @@
   }
 
   box.onkeyup = update;
-  
+
+  box.valur = 'Snowman shows off! ☃';
   update();
 
 })(window.splitter);

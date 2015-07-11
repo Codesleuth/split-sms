@@ -22,7 +22,7 @@ Type a message into the box below!
     <textarea id="info" rows="14" style="width: 100%" readonly></textarea>
   </div>
   <div style="width: 45%">
-    <textarea id="message" rows="14" style="width: 100%">Snowman shows off! ☃</textarea>
+    <textarea id="message" rows="14" style="width: 100%"></textarea>
   </div>
 </div>
 
