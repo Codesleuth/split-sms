@@ -1,6 +1,5 @@
 {
   "name": "split-sms",
-  "version": "0.1.5",
   "homepage": "https://github.com/Codesleuth/split-sms",
   "authors": [
     "David Wood <david.p.wood@gmail.com> (http://www.codesleuth.co.uk/)"
@@ -26,14 +25,15 @@
     "test",
     "tests"
   ],
-  "_release": "0.1.5",
+  "version": "0.1.7",
+  "_release": "0.1.7",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.5",
-    "commit": "d9fe11fd3dfdb2e2c0eea3291bd3bafce6e43967"
+    "tag": "0.1.7",
+    "commit": "20b271e7c08adfce880b714f65a4f9c5dec0f8ad"
   },
   "_source": "git://github.com/Codesleuth/split-sms.git",
-  "_target": "~0.1.5",
+  "_target": "~0.1.7",
   "_originalSource": "split-sms",
   "_direct": true
 }
