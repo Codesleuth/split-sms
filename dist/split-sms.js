@@ -86,6 +86,7 @@ module.exports.split = function (message, options) {
 };
 
 },{"./gsmvalidator":2}],2:[function(require,module,exports){
+// '@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞÆæßÉ\x20!"#¤%&\'()*+,-./0123456789:;<=>?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ§¿abcdefghijklmnopqrstuvwxyzäöñüà\f^{}\\[~]|€'
 var GSM_charCodes = [
   10,12,13,32,33,34,35,36,
   37,38,39,40,41,42,43,44,
@@ -108,6 +109,7 @@ var GSM_charCodes = [
   937,8364
 ];
 
+// '\f|^€{}[~]\\'
 var GSMe_charCodes = [12,91,92,93,94,123,124,125,126,8364];
 
 function validateCharacter(character) {
