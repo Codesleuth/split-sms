@@ -20,10 +20,13 @@ In the example above, `info` will be:
 ```json
 {
   "characterSet": "GSM",
-  "parts": [{
-    "part": "JavaScript is fun!",
-    "length": 18
-  }],
+  "parts": [
+    {
+      "content": "JavaScript is fun!",
+      "length": 18,
+      "bytes": 18
+    }
+  ],
   "bytes": 18,
   "length": 18,
   "remainingInPart": 142
@@ -61,13 +64,13 @@ $ bower install split-sms --save
 ```
 
 You can also use [RawGit][rawgit-url] to link directly to specific versions of the built scripts.
-For example, the following URLs are for [version 0.1.5][v0.1.5-url]:
+For example, the following URLs are for [version 0.1.6][v0.1.6-url]:
 
 | Type       | URL                                                                       |
 | ---------- | ------------------------------------------------------------------------- |
-| Source     | https://github.com/Codesleuth/split-sms/blob/0.1.5/dist/split-sms.min.js  |
-| RawGit dev | https://rawgit.com/Codesleuth/split-sms/0.1.5/dist/split-sms.min.js       |
-| RawGit CDN | https://cdn.rawgit.com/Codesleuth/split-sms/0.1.5/dist/split-sms.min.js   |
+| Source     | https://github.com/Codesleuth/split-sms/blob/0.1.6/dist/split-sms.min.js  |
+| RawGit dev | https://rawgit.com/Codesleuth/split-sms/0.1.6/dist/split-sms.min.js       |
+| RawGit CDN | https://cdn.rawgit.com/Codesleuth/split-sms/0.1.6/dist/split-sms.min.js   |
 
 Alternatively, pull out the scripts in the `dist/` directory and consume them.
 
@@ -113,4 +116,4 @@ See [the demo site][demo-url] for an example.
 
 [demo-url]: http://www.codesleuth.co.uk/split-sms/
 
-[v0.1.5-url]: https://github.com/Codesleuth/split-sms/tree/0.1.5
+[v0.1.6-url]: https://github.com/Codesleuth/split-sms/tree/0.1.6
