@@ -13,7 +13,7 @@ describe('GSM Validator', function () {
 
   });
 
-  describe('Validating a message of every valid GSM turkish characters', function () {
+  describe('Validating a message of every valid GSM Turkish shift table characters', function () {
 
     it('should return true', function () {
       var message = '@£$¥€éùıòÇ\nĞğ\rÅåΔ_ΦΓΛΩΠΨΣΘΞŞşßÉ\x20!"#¤%&\'()*+,-./0123456789:;<=>?İABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ§çabcdefghijklmnopqrstuvwxyzäöñüà\f^{}\[~]|';
@@ -23,7 +23,7 @@ describe('GSM Validator', function () {
 
   });
 
-  describe('Validating a message of every valid GSM spanish characters', function () {
+  describe('Validating a message of every valid GSM Spanish shift table characters', function () {
 
     it('should return true', function () {
       var message = '@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞÆæßÉ\x20!"#¤%&\'()*+,-./0123456789:;<=>?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ§¿abcdefghijklmnopqrstuvwxyzäöñüàç\f^{}\\[~]|ÁÍÓÚá€íóú';
@@ -33,12 +33,22 @@ describe('GSM Validator', function () {
 
   });
 
-  describe('Validating a message of every valid GSM portuguese characters', function () {
+  describe('Validating a message of every valid GSM Portuguese shift table characters', function () {
 
     it('should return true', function () {
       var message = '@£$¥êéúíóç\nÔô\rÁáΔ_ªÇÀ∞^\\€Ó|ÂâÊÉ\x20!"#º%&\'()*+,-./0123456789:;<=>?ÍABCDEFGHIJKLMNOPQRSTUVWXYZÃÕÚÜ§~abcdefghijklmnopqrstuvwxyzãõ`üà\fΦΓ^ΩΠΨΣΘ{}\\[~]|';
       var result = gsmValidator.validateMessageWithShiftTable(message);
       assert.strictEqual(result, true);
+    });
+
+  });
+
+  describe('Validating a message of mixed valid GSM shift tables', function () {
+
+    it('should return false', function () {
+      var message = '∞Ø';
+      var result = gsmValidator.validateMessageWithShiftTable(message);
+      assert.strictEqual(result, false);
     });
 
   });
